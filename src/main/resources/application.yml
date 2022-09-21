@@ -1,0 +1,57 @@
+#端口设置
+server:
+  port: 8082
+
+#swagger配置
+Swagger:
+  description: common-接口文档
+  title: common
+  version: 1.0
+
+#springboot配置
+spring:
+  profiles:
+    active: "@profileActive@"
+  datasource:
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    hikari:
+      max-lifetime: 500000
+  jackson: #时间格式化
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  servlet: #文件相关
+    multipart:
+      max-file-size: -1
+      maxRequestSize: -1
+
+#mybatis配置逻辑删除
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    call-setters-on-nulls: true   #配置返回结果集为空时仍返回字段
+
+#minio文件服务
+minio:
+  endpoint: https://minio.service.cf/
+  accessKey: admin
+  secretKey: HBQ521521cf*
+  bucketName: file
+
+#阿里短信配置
+ali:
+  endpoint: dysmsapi.aliyuncs.com
+  accessKey: LTAI5tRbCbT6gBMVburLDkC4
+  secretKey: BQsHbBTpPkjSFQdCg1N3h9Q2cbTl1M
+  signName: IDSE
+  templateCode: SMS_241066375
+  expireTime: 300
+
+#腾讯cos
+cos:
+  accessKey: AKIDAKLJ8r5r8E74vdrfv0y29FBXZWIAtRyM
+  secretKey: Qkwyqy0tfEg09A0eFB0fBWgfT5X4axBE
+  regionName: ap-beijing
+  bucketName: file-1256282866

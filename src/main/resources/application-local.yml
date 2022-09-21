@@ -1,0 +1,17 @@
+#spring
+spring:
+  datasource:
+    url: jdbc:p6spy:mysql://service.cf:3307/cms?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: HBQ521521cf*
+  redis: # Redis服务器地址
+    host: service.cf
+    database: 8
+    port: 6379
+    password: HBQ521521cf*
+    timeout: 3000ms
+
+#输出日志位置
+log:
+  url: target/common
+
