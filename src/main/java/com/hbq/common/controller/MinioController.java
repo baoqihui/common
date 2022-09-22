@@ -1,11 +1,7 @@
 package com.hbq.common.controller;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.http.HttpRequest;
-import cn.hutool.json.JSONObject;
-import cn.hutool.json.JSONUtil;
 import com.hbq.common.model.FileVo;
-import com.hbq.common.model.HexoToken;
 import com.hbq.common.util.MinioUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -29,18 +25,6 @@ import java.util.List;
 @RequestMapping("/file")
 @AllArgsConstructor
 public class MinioController {
-
-    @ApiOperation(value = "转发token")
-    @PostMapping("/get_access_token")
-    public JSONObject getVerifyCode(@RequestBody HexoToken hexoToken) {
-        String url = "https://github.com/login/oauth/access_token";
-        String post = HttpRequest.post(url)
-                .header("accept", "application/json")
-                .body(JSONUtil.toJsonStr(hexoToken), "application/json")
-                .execute().body();
-        log.info(post);
-        return JSONUtil.parseObj(post);
-    }
 
     @ApiOperation(value = "创建文件夹")
     @PostMapping("/createBucket")
