@@ -133,7 +133,7 @@
     </springProfile>
 
     <!--pro环境输出到文件-->
-    <springProfile name="pro">
+    <springProfile name="prod">
         <root level="info">
             <appender-ref ref="consoleLog"/>
             <appender-ref ref="fileInfoLog"/>
