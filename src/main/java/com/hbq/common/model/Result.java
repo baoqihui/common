@@ -33,6 +33,9 @@ public class Result<T> implements Serializable {
     public static <T> Result<T> succeedWith(T datas, Integer code, String msg) {
         return new Result<>(datas, code, msg);
     }
+    public static <T> Result<T> failed(ErrorEnum errorEnum) {
+        return failedWith(null, errorEnum.getErrorCode(), errorEnum.getErrorMsg());
+    }
 
     public static <T> Result<T> failed(String msg) {
         return failedWith(null, CodeEnum.ERROR.getCode(), msg);
